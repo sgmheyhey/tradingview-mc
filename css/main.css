@@ -256,10 +256,6 @@
 		padding: 0 20px;
 		width: 50%;
 	}
-	#nocharts .info div:last-child {
-		background: #051016 url('../images/mcc-capture.png') center / contain no-repeat;
-		width: 50%;
-	}
 	#nocharts .cornflower-box {
 		width: 80vw;
 		background: #6688a8;
@@ -316,7 +312,7 @@
 		color: #ccccd7;
 	}
 	.modalInfo h2 {
-		letter-spacing: 12px;
+		letter-spacing: 2px;
 		text-align: center;
 	}
 	.modalInfo h3 {
@@ -324,7 +320,6 @@
 	}
 	.modalInfo h4 {
 		color: #fff;
-		width: 40%;
 		text-align: center;
 		margin: auto;
 	}
@@ -339,7 +334,7 @@
 	}
 	.modalInfo div div div {
 		display: block;
-		width: 50%;
+		width: 100%;
 		word-break: break-all;
 	}
 	.modalInfo div div div:first-child {
@@ -349,7 +344,7 @@
 	.modalInfo p {
 		color: #ddd;
 		box-shadow: 0 0 10px 0px #000;
-		background: radial-gradient(circle, rgba(20, 60, 120, .4), rgba(4, 6, 24, .4));
+		background: rgba(68, 116, 216, .5);
 		font-weight: 300;
 		font-size: 16px;
 		line-height: 24px;
@@ -505,4 +500,17 @@
 		background: #fff;
 		color: #da513d;
 	
+}
+.copyBtn {
+	font-size: 25px;
+	padding: 5px;
+	margin: auto;
+	margin-top: 32px;
+	background: rgba(32, 48, 80, .7);
+	border: 1px solid #09f;
+	border-radius: 5px;
+	color: #ecf0f1;
+	text-decoration: none;
+	transition: background-color .3s;
+	width: 69px;
 }
