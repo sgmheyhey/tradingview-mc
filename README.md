@@ -1,10 +1,9 @@
-## TradingView  multi-chart-widgets
+## TradingView  multi-charts
 
-This allows you to view multi-chart-widgets TradingView charts at once
 
 ## How to use
 
-[CHECK IT OUT](https://sgmheyhey.github.io/tradingview-mcw)
+[CHECK IT OUT](https://sgmheyhey.github.io/tradingview-mc)
 
 ```
 $ chrome index.html
