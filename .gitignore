@@ -1,10 +1,11 @@
 # Created by .ignore support plugin (hsz.mobi)
 
+.DS_Store
 .private_env
 package-lock.json
 serviceAccountKey.json
+tags
 yarn.lock
-.DS_Store
 
 ### Node template
 # Logs

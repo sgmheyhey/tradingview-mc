@@ -24,7 +24,7 @@ let chartPairs = new Array;
 function initPage() {
     loadPairs();
     loadParameters();
-
+    darken();
     for(let i = 0; i < chartPairs.length; i++)
         createChart(chartPairs[i]);
 
@@ -218,7 +218,7 @@ function createChart(chartTicker) {
         "toolbar_bg": toolbarbg,
         "enable_publishing": false,
         "hide_top_toolbar": false,
-        "hide_side_toolbar": false,
+        "hide_side_toolbar": true,
         "allow_symbol_change": allowsymbolchange,
         "show_popup_button": false,
         "withdateranges": withdateranges,
