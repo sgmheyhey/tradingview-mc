@@ -3,8 +3,8 @@ const DEBUGMODE = false;
 const STORAGE_USEDARKTHEME = "useDarkTheme";
 const STORAGE_WIDTH = "table_width";
 const STORAGE_HEIGHT = "table_height";
-const DEFAULT_LAYOUT_WIDTH = 2;
-const DEFAULT_LAYOUT_HEIGHT = 3;
+const DEFAULT_LAYOUT_WIDTH = 3;
+const DEFAULT_LAYOUT_HEIGHT = 2;
 const STORAGE_TIMEZONE = "timezone";
 const STORAGE_INTERVAL = "interval";
 const STORAGE_SHOWDETAILS = "showDetails";
@@ -404,6 +404,8 @@ function loadPairs(url) {
             }
         } else {
             //if there are nothing in the localstorage, use some default value
+            chartPairs.push("BITMEX:XBTUSD");
+            chartPairs.push("BITMEX:XBTUSD");
             chartPairs.push("BITMEX:XBTUSD");
             chartPairs.push("BITMEX:XBTUSD");
             chartPairs.push("BITMEX:XBTUSD");
