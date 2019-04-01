@@ -76,7 +76,7 @@
 		</DIV>
 		<BUTTON id="theme-toggle" class="theme" onclick="change_theme()">Browser Incompatible</BUTTON>
 		<BUTTON id="configChart" class="theme" onclick="showMultiConfig()">Javascript Crashed</BUTTON>
-		<BUTTON class="btn btn-nav right" onclick="showInfo()">DONATE!</BUTTON>
+		<BUTTON class="btn btn-nav right" onclick="showInfo()">About</BUTTON>
 		<DIV class="modalConfig" style="-webkit-backdrop-filter: blur(6px);">
 			<DIV class="hero" style="overflow-y: auto; max-height: 100vh;">
 				<DIV id="addMultiChart" style="background: #fff9fc; border-radius: 2px;" class="cornflower-box">
@@ -207,9 +207,9 @@
 				<DIV style="display:flex; margin-top:45%; border-radius: 14px;
 				background: rgba(68, 116, 216, .5);">
 					<div style="padding-top: 10%; transform: translateY(-25%);">
-						<h2>&nbsp;ETH</h2>
-						<h4 id="original-eth">0xfd70b93c83be51c62188e9c1d0893e911d5678be</h4>
-						<button class="copyBtn" onclick="copyText(this, 'original-eth')">Copy</button>
+						<h2>About</h2>
+						<h4 id="copymsg">tradingview-mw</h4>
+						<button class="copyBtn" onclick="copyText(this, 'copymsg')">Copy</button>
 					</div>
 				</DIV>
 				<DIV>
@@ -218,7 +218,7 @@
 			</DIV>
 			<DIV id="addSingleChart" style="text-align: center; display: none;">
 				<DIV class="divPairsSetup">
-					<H3 style='color:#eee'>Add in your pairs below to get started (e.g: BITTREX:BTCUSDT):</H3>
+					<H3 style='color:#eee'>Add in your pairs below to get started (e.g: BITMEX:XBTUSD):</H3>
 					<INPUT id='SinglepairsInput' onkeydown="addChartToList()" type="text" placeholder="Press enter to add the pairs" />
 				</DIV>
 			</DIV>
