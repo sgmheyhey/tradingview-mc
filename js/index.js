@@ -279,7 +279,7 @@ function change_theme() {
 
     //recreate the charts
     for(let i = 0; i < chartPairs.length; i++) {
-        createChart((chartPairs[i] !== null ? chartPairs[i] : "OANDA:EURUSD"));
+        createChart((chartPairs[i] !== null ? chartPairs[i] : "BITMEX:XBTUSD"));
     }
     colorWidthHeight();
 }
@@ -404,10 +404,10 @@ function loadPairs(url) {
             }
         } else {
             //if there are nothing in the localstorage, use some default value
-            chartPairs.push("OANDA:USDJPY");
-            chartPairs.push("OANDA:EURUSD");
-            chartPairs.push("OANDA:AUDUSD");
-            chartPairs.push("OANDA:USDCAD");
+            chartPairs.push("BITMEX:XBTUSD");
+            chartPairs.push("BITMEX:XBTUSD");
+            chartPairs.push("BITMEX:XBTUSD");
+            chartPairs.push("BITMEX:XBTUSD");
         }
     }
     let chartPUrl = location.origin + "/?";
