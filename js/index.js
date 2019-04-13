@@ -140,7 +140,7 @@ function letsGo() {
     alert("At least one exchange & chart pair are needed to get started.");
     return;
   }
-  var urlStr = "tradingview-mc/?";
+  var urlStr = "?";
   for (var i = 0; i < optl; i++) {
     if (i != 0) urlStr += "&";
     urlStr += "chart=" + options[i].value;
