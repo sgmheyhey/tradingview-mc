@@ -140,7 +140,7 @@ function letsGo() {
     alert("At least one exchange & chart pair are needed to get started.");
     return;
   }
-  var urlStr = "?";
+  var urlStr = "tradingview-mc/?";
   for (var i = 0; i < optl; i++) {
     if (i != 0) urlStr += "&";
     urlStr += "chart=" + options[i].value;
@@ -168,7 +168,7 @@ function removeChart(boxElement, pairsCSV) {
   chartPairs.splice(chartPairs.findIndex(x => x == pairsCSV), 1);
 
   //reset url
-  var urlStr = window.top.location.href.substr(
+  let urlStr = window.top.location.href.substr(
     0,
     top.location.href.lastIndexOf("?") + 1
   );
@@ -427,8 +427,8 @@ function darken() {
 
 // load charts
 // TODO: rewrite this logic for storing chart pairs and rendering default ones
-function loadPairs(url) {
-  url = window.location.href;
+function loadPairs() {
+  let url = window.location.href;
   let expression = /[?&]chart(=([^&#]*)|&|#|$)/g;
   let match;
   let i = 0;
@@ -456,7 +456,7 @@ function loadPairs(url) {
       chartPairs.push("BITMEX:ETHUSD");
     }
   }
-  let chartPUrl = location.origin + "/?";
+  let chartPUrl = location.origin + "tradingview-mc/?";
   chartPairs.forEach(function(_) {
     chartPUrl += "chart=" + _ + "&";
   });
