@@ -255,12 +255,15 @@ function createChart(chartTicker) {
     hide_top_toolbar: false,
     hide_side_toolbar: true,
     allow_symbol_change: allowsymbolchange,
+    studies: [
+      "LinearRegression@tv-basicstudies",
+      "ZigZag@tv-basicstudies"
+    ],
     show_popup_button: false,
     withdateranges: withdateranges,
     details: details,
     hideideas: true
   });
-  // TODO: add indicators(studies) here
 
   let topButtonContainerElement = document.createElement("div");
   topButtonContainerElement.setAttribute("class", "box-button-container");
