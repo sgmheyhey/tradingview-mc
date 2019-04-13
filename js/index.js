@@ -6,7 +6,7 @@ const STORAGE_HEIGHT = "table_height";
 const DEFAULT_LAYOUT_WIDTH = 3;
 const DEFAULT_LAYOUT_HEIGHT = 2;
 const STORAGE_TIMEZONE = "timezone";
-const STORAGE_INTERVAL = "interval";
+const STORAGE_INTERVALS = "intervals";
 const STORAGE_SHOWDETAILS = "showDetails";
 const STORAGE_SHOWBOTTOMTOOLBAR = "showBottomToolbar";
 const STORAGE_ALLOWSYMBOLCHANGE = "allowSymbolChange";
@@ -18,15 +18,18 @@ let gbl_boxWidth = '';
 let gbl_boxHeight = '';
 let gbl_isStorageUsable = true;
 let gbl_inputPairId = -1;
+let gbl_chartIntervalsNdx = 0;
+let gbl_chartIntervals = [ "3", "15", "60" ];
 
 let chartPairs = new Array;
+let chartIntervals = new Array;
 // setup the UI / charts layout
 function initPage() {
     loadPairs();
     loadParameters();
     darken();
     for(let i = 0; i < chartPairs.length; i++)
-        createChart(chartPairs[i]);
+      createChart(chartPairs[i]);
 
     colorWidthHeight();
     setChartCount();
@@ -195,8 +198,12 @@ function createChart(chartTicker) {
 
     var timezoneSelect = document.getElementById("timezone");
     var timezoneValue = timezoneSelect.options[timezoneSelect.selectedIndex].value;
+
+    usrSelct = storeMAN(false, STORAGE_INTERVALS);
     var intervalSelect = document.getElementById("interval");
+    intervalSelect.value = (usrSelct) ? usrSelct : gbl_chartIntervals[gbl_chartIntervalsNdx++%3];
     var intervalValue = intervalSelect.options[intervalSelect.selectedIndex].value;
+
     var detailsChk = document.getElementById('details');
     var details = (detailsChk.checked ? true : false);
     var withdaterangesChk = document.getElementById('withdateranges');
@@ -407,9 +414,9 @@ function loadPairs(url) {
             chartPairs.push("BITMEX:XBTUSD");
             chartPairs.push("BITMEX:XBTUSD");
             chartPairs.push("BITMEX:XBTUSD");
-            chartPairs.push("BITMEX:XBTUSD");
-            chartPairs.push("BITMEX:XBTUSD");
-            chartPairs.push("BITMEX:XBTUSD");
+            chartPairs.push("BITMEX:ETHUSD");
+            chartPairs.push("BITMEX:ETHUSD");
+            chartPairs.push("BITMEX:ETHUSD");
         }
     }
     let chartPUrl = location.origin + "/?";
@@ -419,13 +426,11 @@ function loadPairs(url) {
 }
 
 // load chart parameters
-function loadParameters() {
+function loadParameters(interval_seq) {
     storeMAN(true, STORAGE_CHARTSPAIRS, chartPairs);
     gbl_dark = JSON.parse(storeMAN(false, STORAGE_USEDARKTHEME));
     let usrSelct = storeMAN(false, STORAGE_TIMEZONE);
     document.getElementById("timezone").value = (usrSelct) ? usrSelct : "Etc/UTC";
-    usrSelct = storeMAN(false, STORAGE_INTERVAL);
-    document.getElementById("interval").value = (usrSelct) ? usrSelct : "60";
     usrSelct = storeMAN(false, STORAGE_SHOWDETAILS);
     document.getElementById("details").checked = (usrSelct === 'true');
     usrSelct = storeMAN(false, STORAGE_SHOWBOTTOMTOOLBAR);
