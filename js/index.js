@@ -254,9 +254,11 @@ function createChart(chartTicker) {
     enable_publishing: false,
     hide_top_toolbar: false,
     hide_side_toolbar: true,
+    // range: "70m",
     allow_symbol_change: allowsymbolchange,
     studies: [
       "LinearRegression@tv-basicstudies",
+      "AwesomeOscillator@tv-basicstudies",
       "ZigZag@tv-basicstudies"
     ],
     show_popup_button: false,
