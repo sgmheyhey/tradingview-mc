@@ -19,7 +19,7 @@ let gbl_boxHeight = "";
 let gbl_isStorageUsable = true;
 let gbl_inputPairId = -1;
 let gbl_chartIntervalsNdx = 0;
-let gbl_chartIntervals = ["3", "15", "60"];
+let gbl_chartIntervals = ["3", "15", "45"];
 
 let chartPairs = new Array();
 let chartIntervals = new Array();

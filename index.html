@@ -1,24 +1,39 @@
 <!DOCTYPE HTML>
 <HTML>
-<HEAD>
-	<META name="description" content="tradingview-multi-charts. Customize graphs or view full screen. Add custom Alt Coins. All for free. 1x1 all the way up to 10x10.">
-	<META name="keywords" content="Crypto, Altcoin, Ethereum, Bitcoin, TradingView, StockCharts, Charts, Candlestick Graph, Forex, Ticker, USD, EUR, Stocks">
-	<META name="robots" content="index, follow">
-	<META name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<META name="apple-mobile-web-app-title" content="tv-mcw">
-	<STYLE>
-		::-webkit-scrollbar {width: 7px;background: transparent;}
-		::-webkit-scrollbar-track {border-radius: 25px;}
-		::-webkit-scrollbar-thumb {background: rgba(0,0,0,.8);border-radius: 25px;}
-		::-webkit-scrollbar-thumb:hover {background: rgba(0,0,0,.5);}
 
-		.autocomplete {
+<HEAD>
+    <META name="description" content="tradingview-multi-charts. Customize graphs or view full screen. Add custom Alt Coins. All for free. 1x1 all the way up to 10x10.">
+    <META name="keywords" content="Crypto, Altcoin, Ethereum, Bitcoin, TradingView, StockCharts, Charts, Candlestick Graph, Forex, Ticker, USD, EUR, Stocks">
+    <META name="robots" content="index, follow">
+    <META name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META name="apple-mobile-web-app-title" content="tv-mcw">
+    <STYLE>
+         ::-webkit-scrollbar {
+            width: 7px;
+            background: transparent;
+        }
+
+         ::-webkit-scrollbar-track {
+            border-radius: 25px;
+        }
+
+         ::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, .8);
+            border-radius: 25px;
+        }
+
+         ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, .5);
+        }
+
+        .autocomplete {
             /*the container must be positioned relative:*/
             position: relative;
             display: inline-block;
-		}
-		.autocomplete-items {
+        }
+
+        .autocomplete-items {
             position: absolute;
             z-index: 2;
             top: 100%;
@@ -30,7 +45,7 @@
             padding: 8px 14px;
             cursor: pointer;
             background-color: #222;
-			border-bottom: 1px solid #4d4d4d;
+            border-bottom: 1px solid #4d4d4d;
         }
 
         .autocomplete-items div:hover {
@@ -43,70 +58,70 @@
             background-color: DodgerBlue !important;
             color: #ffffff;
         }
-	</STYLE>
-	<TITLE>tradingview-mc</TITLE>
+    </STYLE>
+    <TITLE>tradingview-mc</TITLE>
 
-	<LINK rel="shortcut icon" type="image/png" href="images/favicon.png">
-	<LINK href="css/main.css?ver=3" rel="stylesheet">
+    <LINK rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <LINK href="css/main.css?ver=3" rel="stylesheet">
 
-	<SCRIPT async src="https://www.googletagmanager.com/gtag/js?id=UA-107348406-1"></SCRIPT>
-	<SCRIPT>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments) };
-		gtag('js', new Date());
-		gtag('config', 'UA-107348406-1');
-		if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
-			document.write('<script src="js/index.ie.js"><\/script>');
-	</SCRIPT>
-	<SCRIPT type="text/javascript" src="https://s3.tradingview.com/tv.js"></SCRIPT>
-	<SCRIPT type="text/javascript" src="js/index.js?v1"></SCRIPT>
+    <SCRIPT async src="https://www.googletagmanager.com/gtag/js?id=UA-107348406-1"></SCRIPT>
+    <SCRIPT>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments)
+        };
+        gtag('js', new Date());
+        gtag('config', 'UA-107348406-1');
+        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
+            document.write('<script src="js/index.ie.js"><\/script>');
+    </SCRIPT>
+    <SCRIPT type="text/javascript" src="https://s3.tradingview.com/tv.js"></SCRIPT>
+    <SCRIPT type="text/javascript" src="js/index.js?v1"></SCRIPT>
 </HEAD>
 
 <BODY style="background: #363843;">
 
-	<DIV class="topnav" id="topnav">
-		<DIV class="label">
-			<LABEL for="box-width" class="number-label">Width</LABEL>
-			<INPUT id="box-width" class="box-size" title="Adjusts the chart width" type="number" name="box-width" min="1" max="20" />
-		</DIV>
-		<DIV class="label">
-			<LABEL for="box-width" class="number-label">Height</LABEL>
-			<INPUT id="box-height" class="box-size" title="Adjust the chart height" type="number" name="box-height" min="1" max="20"
-			/>
-		</DIV>
-		<BUTTON id="theme-toggle" class="theme" onclick="change_theme()">Browser Incompatible</BUTTON>
-		<BUTTON id="configChart" class="theme" onclick="showMultiConfig()">Javascript Crashed</BUTTON>
-		<BUTTON class="btn btn-nav right" onclick="showInfo()">About</BUTTON>
-		<DIV class="modalConfig" style="-webkit-backdrop-filter: blur(6px);">
-			<DIV class="hero" style="overflow-y: auto; max-height: 100vh;">
-				<DIV id="addMultiChart" style="background: #fff9fc; border-radius: 2px;" class="cornflower-box">
-					<DIV class="divPairsSetup">
-						<H3>Type an exchange &amp; currency pair. Example&nbsp;BITTREX:BTCUSDT</H3>
-						<A href="javascript:void(0)" class="inputTypeButton" onclick="inputPairs(null);">
+    <DIV class="topnav" id="topnav">
+        <BUTTON class="btn btn-nav" onclick="showInfo()">about</BUTTON>
+        <DIV class="label">
+            <LABEL for="box-width" class="number-label">w:</LABEL>
+            <INPUT id="box-width" class="box-size" title="Adjusts the chart width" type="number" name="box-width" min="1" max="2" />
+        </DIV>
+        <DIV class="label">
+            <LABEL for="box-width" class="number-label">h:</LABEL>
+            <INPUT id="box-height" class="box-size" title="Adjust the chart height" type="number" name="box-height" min="1" max="2" />
+        </DIV>
+        <BUTTON id="theme-toggle" class="theme" onclick="change_theme()">Browser Incompatible</BUTTON>
+        <BUTTON id="configChart" class="theme" onclick="showMultiConfig()">Javascript Crashed</BUTTON>
+        <DIV class="modalConfig" style="-webkit-backdrop-filter: blur(6px);">
+            <DIV class="hero" style="overflow-y: auto; max-height: 100vh;">
+                <DIV id="addMultiChart" style="background: #fff9fc; border-radius: 2px;" class="cornflower-box">
+                    <DIV class="divPairsSetup">
+                        <H3>Type an exchange &amp; currency pair. Example&nbsp;BITTREX:BTCUSDT</H3>
+                        <A href="javascript:void(0)" class="inputTypeButton" onclick="inputPairs(null);">
 							+
 						</A>
-						<INPUT id='pairsInput' type="text" onkeyup="inputPairs(this)" placeholder="Press enter to add the pairs"
-						 style="text-transform: uppercase;" />
-						<DIV style='float:right;'>
-							<A href="javascript:void(0)" style="padding: 8px 0 0 1px; float: none;" class="inputTypeButton" onclick="arrangeChartListItem(true);">
+                        <INPUT id='pairsInput' type="text" onkeyup="inputPairs(this)" placeholder="Press enter to add the pairs" style="text-transform: uppercase;" />
+                        <DIV style='float:right;'>
+                            <A href="javascript:void(0)" style="padding: 8px 0 0 1px; float: none;" class="inputTypeButton" onclick="arrangeChartListItem(true);">
 								⇧
 							</A>
-							<A href="javascript:void(0)" style="padding: 8px 0 0 1px; float: none;" class="inputTypeButton" onclick="arrangeChartListItem(false);">
+                            <A href="javascript:void(0)" style="padding: 8px 0 0 1px; float: none;" class="inputTypeButton" onclick="arrangeChartListItem(false);">
 								⇩
 							</A>
-						</DIV>
-						<DIV style='float: left;width: 85%;margin-left: 6px;border-radius: 3px;margin-bottom: 4%;background: #535353;'>
-							<SELECT id="listPairs" style="background: #535353;border: none;color: #f2f2f2;" multiple="multiple" rows=2>
+                        </DIV>
+                        <DIV style='float: left;width: 85%;margin-left: 6px;border-radius: 3px;margin-bottom: 4%;background: #535353;'>
+                            <SELECT id="listPairs" style="background: #535353;border: none;color: #f2f2f2;" multiple="multiple" rows=2>
 							</SELECT>
-						</DIV>
-						<INPUT id="btnRemovePairs" style="background: #ff4343; border: none; width: 84%; border-radius: 2px; font-size: 16px; margin: 8px 8%; color: #000; font-weight: 500;" type="button" value="Remove Selected Pairs"
-						 onclick="btnRemovePairsClick()" />
-					</DIV>
-					<!-- <DIV style="width: 100px; display: inline-block;">&nbsp;</DIV> -->
-					<DIV class="divPairsSetup" style="text-align: center;">
-						<H3>Additional charts parameters:</H3>
-						<SPAN style='color:#777;font-weight:bold'>Timezone</SPAN>
-						<SELECT name="timezone" id="timezone" style="width:150px" onclick="storeMAN(true, STORAGE_TIMEZONE, this.options[this.selectedIndex].value)">
+                        </DIV>
+                        <INPUT id="btnRemovePairs" style="background: #ff4343; border: none; width: 84%; border-radius: 2px; font-size: 1rem; margin: 8px 8%; color: #000; font-weight: 500;" type="button" value="Remove Selected Pairs" onclick="btnRemovePairsClick()" />
+                    </DIV>
+                    <!-- <DIV style="width: 100px; display: inline-block;">&nbsp;</DIV> -->
+                    <DIV class="divPairsSetup" style="text-align: center;">
+                        <H3>Additional charts parameters:</H3>
+                        <SPAN style='color:#777;font-weight:bold'>Timezone</SPAN>
+                        <SELECT name="timezone" id="timezone" style="width:150px" onclick="storeMAN(true, STORAGE_TIMEZONE, this.options[this.selectedIndex].value)">
 							<OPTION value="Etc/UTC">UTC</OPTION>
 							<OPTION value="exchange">Exchange</OPTION>
 							<OPTION value="Pacific/Honolulu">(UTC-10) Honolulu</OPTION>
@@ -160,74 +175,75 @@
 							<OPTION value="Pacific/Fakaofo">(UTC+13) Tokelau</OPTION>
 							<OPTION value="Pacific/Chatham">(UTC+13:45) Chatham Islands</OPTION>
 						</SELECT>
-						<BR>
-						<SPAN style='color:#777;font-weight:bold'>Default Interval</SPAN>
-						<SELECT name="interval" id="interval" style="width:68px" onclick="storeMAN(true, STORAGE_INTERVAL, this.options[this.selectedIndex].value)">
+                        <BR>
+                        <SPAN style='color:#777;font-weight:bold'>Default Interval</SPAN>
+                        <SELECT name="interval" id="interval" style="width:68px" onclick="storeMAN(true, STORAGE_INTERVAL, this.options[this.selectedIndex].value)">
 							<OPTION value="1">1m</OPTION>
 							<OPTION value="3">3m</OPTION>
 							<OPTION value="5">5m</OPTION>
 							<OPTION value="15">15m</OPTION>
 							<OPTION value="30">30m</OPTION>
-							<OPTION value="60" selected="selected">1h</OPTION>
+							<OPTION value="45" selected="selected">45m</OPTION>
+							<OPTION value="60">1h</OPTION>
 							<OPTION value="120">2h</OPTION>
 							<OPTION value="180">3h</OPTION>
 							<OPTION value="240">4h</OPTION>
 							<OPTION value="D">1d</OPTION>
 							<OPTION value="W">1w</OPTION>
 						</SELECT>
-						<BR>
-						<SPAN for="details" style='color:#777;font-weight:bold'>Show Details</SPAN>
-						<INPUT id="details" type="checkbox" name="details" checked onclick="storeMAN(true, STORAGE_SHOWDETAILS, this.checked)">
-						<BR>
-						<SPAN for="withdateranges" style='color:#777;font-weight:bold'>Show Bottom Toolbar</SPAN>
-						<INPUT id="withdateranges" type="checkbox" name="withdateranges" checked onclick="storeMAN(true, STORAGE_SHOWBOTTOMTOOLBAR, this.checked)">
-						<BR>
-						<SPAN for="allow_symbol_change" style='color:#777;font-weight:bold'>Allow Symbol Change
+                        <BR>
+                        <SPAN for="details" style='color:#777;font-weight:bold'>Show Details</SPAN>
+                        <INPUT id="details" type="checkbox" name="details" checked onclick="storeMAN(true, STORAGE_SHOWDETAILS, this.checked)">
+                        <BR>
+                        <SPAN for="withdateranges" style='color:#777;font-weight:bold'>Show Bottom Toolbar</SPAN>
+                        <INPUT id="withdateranges" type="checkbox" name="withdateranges" checked onclick="storeMAN(true, STORAGE_SHOWBOTTOMTOOLBAR, this.checked)">
+                        <BR>
+                        <SPAN for="allow_symbol_change" style='color:#777;font-weight:bold'>Allow Symbol Change
 							<SPAN data-balloon-length="fit" data-balloon="Due to limitation of TradingView widget, if you tick this OPTION you will be able to change the Symbol/Pairs in your charts, however it will not be saved in your configurations. The configuration will still be the first Symbol/Pairs that you setup."
 							 data-balloon-pos="up" style="font-weight:bold;border-bottom:1px dotted #999">(?)</SPAN>
-						</SPAN>
-						<INPUT id="allow_symbol_change" type="checkbox" name="allow_symbol_change" onclick="storeMAN(true, STORAGE_ALLOWSYMBOLCHANGE, this.checked)">
-						<BR>
-						<SPAN for="usesmallbutton" style='color:#777;font-weight:bold'>Use Small Buttons
+                        </SPAN>
+                        <INPUT id="allow_symbol_change" type="checkbox" name="allow_symbol_change" onclick="storeMAN(true, STORAGE_ALLOWSYMBOLCHANGE, this.checked)">
+                        <BR>
+                        <SPAN for="usesmallbutton" style='color:#777;font-weight:bold'>Use Small Buttons
 							<SPAN data-balloon-length="fit" data-balloon="Use smaller button size, applies to the following buttons: Show in Fullscreen, Remove this Chart"
 							 data-balloon-pos="up" style="font-weight:bold;border-bottom:1px dotted #999">(?)</SPAN>
-						</SPAN>
-						<INPUT id="usesmallbutton" type="checkbox" name="usesmallbutton" onclick="useSmallButtonClick(this)"><br /><br />
-						<SPAN>
+                        </SPAN>
+                        <INPUT id="usesmallbutton" type="checkbox" name="usesmallbutton" onclick="useSmallButtonClick(this)"><br /><br />
+                        <SPAN>
 							<A id='LetsGo' href="javascript:void(0)" onclick="letsGo()">Done</A>
 							&nbsp;&nbsp; &nbsp;&nbsp;
 							<A href="javascript:void(0)" onclick="showMultiConfig()">Cancel</A>
 						</SPAN>
-					</DIV>
-				</DIV>
-			</DIV>
-		</DIV>
-		<DIV class="modalInfo">
-			<DIV>
-				<DIV style="display:flex; margin-top:45%; border-radius: 14px;
+                    </DIV>
+                </DIV>
+            </DIV>
+        </DIV>
+        <DIV class="modalInfo">
+            <DIV>
+                <DIV style="display:flex; margin-top:45%; border-radius: 14px;
 				background: rgba(68, 116, 216, .5);">
-					<div style="padding-top: 10%; transform: translateY(-25%);">
-						<h2>About</h2>
-						<h4 id="copymsg">tradingview-mc</h4>
-						<button class="copyBtn" onclick="copyText(this, 'copymsg')">Copy</button>
-					</div>
-				</DIV>
-				<DIV>
-					<button class="closeBtn" onclick="showInfo()">Close</button>
-				</DIV>
-			</DIV>
-			<DIV id="addSingleChart" style="text-align: center; display: none;">
-				<DIV class="divPairsSetup">
-					<H3 style='color:#eee'>Add in your pairs below to get started (e.g: BITMEX:XBTUSD):</H3>
-					<INPUT id='SinglepairsInput' onkeydown="addChartToList()" type="text" placeholder="Press enter to add the pairs" />
-				</DIV>
-			</DIV>
-			<DIV id="charts"></DIV>
-		</DIV>
+                    <div style="padding-top: 10%; transform: translateY(-25%);">
+                        <h2>About</h2>
+                        <h4 id="copymsg">name:tradingview-mc</h4>
+                        <button class="copyBtn" onclick="copyText(this, 'copymsg')">Copy</button>
+                    </div>
+                </DIV>
+                <DIV>
+                    <button class="closeBtn" onclick="showInfo()">Close</button>
+                </DIV>
+            </DIV>
+            <DIV id="addSingleChart" style="text-align: center; display: none;">
+                <DIV class="divPairsSetup">
+                    <H3 style='color:#eee'>Add in your pairs below to get started (e.g: BITMEX:XBTUSD):</H3>
+                    <INPUT id='SinglepairsInput' onkeydown="addChartToList()" type="text" placeholder="Press enter to add the pairs" />
+                </DIV>
+            </DIV>
+            <DIV id="charts"></DIV>
+        </DIV>
 
-	<SCRIPT type="text/javascript">
-        initPage();
-	</SCRIPT>
+        <SCRIPT type="text/javascript">
+            initPage();
+        </SCRIPT>
 
 </BODY>
 
