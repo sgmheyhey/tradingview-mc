@@ -4,7 +4,7 @@ const STORAGE_USEDARKTHEME = "useDarkTheme";
 const STORAGE_WIDTH = "table_width";
 const STORAGE_HEIGHT = "table_height";
 const DEFAULT_LAYOUT_WIDTH = 3;
-const DEFAULT_LAYOUT_HEIGHT = 2;
+const DEFAULT_LAYOUT_HEIGHT = 3;
 const STORAGE_TIMEZONE = "timezone";
 const STORAGE_INTERVALS = "intervals";
 const STORAGE_SHOWDETAILS = "showDetails";
@@ -248,7 +248,7 @@ function createChart(chartTicker) {
     interval: intervalValue,
     timezone: timezoneValue,
     theme: theme,
-    style: "1",
+    style: "8",
     locale: "en",
     toolbar_bg: toolbarbg,
     enable_publishing: false,
@@ -459,6 +459,9 @@ function loadPairs() {
       chartPairs.push("BITMEX:ETHUSD");
       chartPairs.push("BITMEX:ETHUSD");
       chartPairs.push("BITMEX:ETHUSD");
+      chartPairs.push("AMEX:UUP");
+      chartPairs.push("AMEX:UUP");
+      chartPairs.push("AMEX:UUP");
     }
   }
   let chartPUrl = location.origin + "tradingview-mc/?";
