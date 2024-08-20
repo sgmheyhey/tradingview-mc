@@ -453,12 +453,12 @@ function loadPairs() {
       }
     } else {
       //if there are nothing in the localstorage, use some default value
-      chartPairs.push("BITMEX:XBTUSD");
-      chartPairs.push("BITMEX:XBTUSD");
-      chartPairs.push("BITMEX:XBTUSD");
-      chartPairs.push("BITMEX:ETHUSD");
-      chartPairs.push("BITMEX:ETHUSD");
-      chartPairs.push("BITMEX:ETHUSD");
+      chartPairs.push("INDEX:XBTUSD");
+      chartPairs.push("INDEX:XBTUSD");
+      chartPairs.push("INDEX:XBTUSD");
+      chartPairs.push("INDEX:ETHUSD");
+      chartPairs.push("INDEX:ETHUSD");
+      chartPairs.push("INDEX:ETHUSD");
       chartPairs.push("AMEX:UUP");
       chartPairs.push("AMEX:UUP");
       chartPairs.push("AMEX:UUP");
