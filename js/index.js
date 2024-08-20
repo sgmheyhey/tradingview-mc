@@ -322,7 +322,7 @@ function change_theme() {
 
   //recreate the charts
   for (let i = 0; i < chartPairs.length; i++) {
-    createChart(chartPairs[i] !== null ? chartPairs[i] : "BITMEX:XBTUSD");
+    createChart(chartPairs[i] !== null ? chartPairs[i] : "INDEX:BTCUSD");
   }
   colorWidthHeight();
 }
@@ -453,9 +453,9 @@ function loadPairs() {
       }
     } else {
       //if there are nothing in the localstorage, use some default value
-      chartPairs.push("INDEX:XBTUSD");
-      chartPairs.push("INDEX:XBTUSD");
-      chartPairs.push("INDEX:XBTUSD");
+      chartPairs.push("INDEX:BTCUSD");
+      chartPairs.push("INDEX:BTCUSD");
+      chartPairs.push("INDEX:BTCUSD");
       chartPairs.push("INDEX:ETHUSD");
       chartPairs.push("INDEX:ETHUSD");
       chartPairs.push("INDEX:ETHUSD");
